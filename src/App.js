@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { getArtistId } from "./utils";
+import Loader from "./components/Loader";
+import "./App.css";
 
 class App extends Component {
   state = {
     artist: "",
-    averageWordCount: ""
+    averageWordCount: "",
+    isLoading: false
   };
 
   handleChange = ({ target }) => {
@@ -15,35 +18,38 @@ class App extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    this.setState({ isLoading: true });
     getArtistId(this.state.artist, this.updateAverageWordCount);
   };
 
   updateAverageWordCount = averageWordCount => {
-    this.setState({ averageWordCount }, () => {
-      console.log(this.state.averageWordCount, "state awc");
-    });
+    this.setState({ averageWordCount, isLoading: false });
   };
 
   render() {
+    const { artist, averageWordCount, isLoading } = this.state;
     return (
-      <main>
-        <form action="" onSubmit={this.handleSubmit}>
-          Artist name:{" "}
-          <input
-            type="text"
-            name="artist"
-            value={this.state.artist}
-            onChange={this.handleChange}
-          />
-          <br />
-          <input type="submit" value="Submit" />
-        </form>
-        {this.state.averageWordCount && (
-          <p>
-            Average words in {this.state.artist} songs:{" "}
-            {this.state.averageWordCount}
-          </p>
-        )}
+      <main className="main">
+        <div className="content">
+          <form action="" onSubmit={this.handleSubmit} className="form">
+            Artist name:{" "}
+            <input
+              type="text"
+              name="artist"
+              value={artist}
+              onChange={this.handleChange}
+              className="submit"
+            />
+            <br />
+            <input type="submit" value="Submit" className="submit" />
+            {this.state.averageWordCount && (
+              <p>
+                Average words in {artist} songs: {averageWordCount}
+              </p>
+            )}
+            {isLoading && <Loader />}
+          </form>
+        </div>
       </main>
     );
   }
