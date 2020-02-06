@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { getArtistSongs } from "./utils";
 
 class App extends Component {
   state = {
@@ -6,15 +7,18 @@ class App extends Component {
   };
 
   handleChange = ({ target }) => {
-    this.setState({ artist: target.value }, () => {
-      console.log(this.state.artist);
-    });
+    this.setState({ artist: target.value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    getArtistSongs(this.state.artist);
   };
 
   render() {
     return (
       <main>
-        <form action="">
+        <form action="" onSubmit={this.handleSubmit}>
           Artist name:{" "}
           <input
             type="text"
@@ -23,6 +27,7 @@ class App extends Component {
             onChange={this.handleChange}
           />
           <br />
+          <input type="submit" value="Submit" />
         </form>
       </main>
     );
