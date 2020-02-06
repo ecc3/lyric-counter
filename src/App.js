@@ -2,12 +2,17 @@ import React, { Component } from "react";
 import { getArtistId } from "./utils";
 import Loader from "./components/Loader";
 import "./App.css";
+import WordCloud from "./components/WordCloud";
 
 class App extends Component {
   state = {
     artist: "",
     averageWordCount: "",
-    isLoading: false
+    minWordCount: "",
+    maxWordCount: "",
+    allSongWords: [],
+    isLoading: false,
+    showWordCloud: false
   };
 
   handleChange = ({ target }) => {
@@ -19,15 +24,34 @@ class App extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.setState({ isLoading: true });
-    getArtistId(this.state.artist, this.updateAverageWordCount);
+    getArtistId(this.state.artist, this.updateData);
   };
 
-  updateAverageWordCount = averageWordCount => {
-    this.setState({ averageWordCount, isLoading: false });
+  updateData = (averageWordCount, minWordCount, maxWordCount, allSongWords) => {
+    this.setState({
+      averageWordCount,
+      minWordCount,
+      maxWordCount,
+      allSongWords,
+      isLoading: false
+    });
+  };
+
+  handleClick = () => {
+    this.setState(currentState => {
+      return this.setState({ showWordCloud: !currentState.showWordCloud });
+    });
   };
 
   render() {
-    const { artist, averageWordCount, isLoading } = this.state;
+    const {
+      artist,
+      averageWordCount,
+      isLoading,
+      minWordCount,
+      maxWordCount,
+      showWordCloud
+    } = this.state;
     return (
       <main className="main">
         <div className="content">
@@ -43,12 +67,20 @@ class App extends Component {
             <br />
             <input type="submit" value="Submit" className="submit" />
             {this.state.averageWordCount && (
-              <p>
-                Average words in {artist} songs: {averageWordCount}
-              </p>
+              <div>
+                <p>
+                  Average words in songs by {artist}: {averageWordCount}
+                </p>
+                <p>Maximum words across songs sampled: {maxWordCount}</p>
+                <p>Minimum words across songs sampled: {minWordCount}</p>
+              </div>
             )}
             {isLoading && <Loader />}
           </form>
+          <button onClick={this.handleClick} className="submit">
+            Show Word Cloud
+          </button>
+          {showWordCloud && <WordCloud />}
         </div>
       </main>
     );
