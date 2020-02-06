@@ -1,68 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# lyric-counter
 
-## Available Scripts
+A front end application that returns the average, maximum and minimum number of words for a given artist's songs. A word cloud can also be displayed that shows the most common words from across the songs sampled.
 
-In the project directory, you can run:
+## Project Demo
 
-### `npm start`
+This project is hosted via GitHub pages and can be viewed [here](https://ecc3.github.io/lyric-counter/).
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting started
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+To set-up this project:
 
-### `npm test`
+- This project was made using Node v13.5.0 so you may need to update to this version to run locally.
+- Clone the project by copying into the terminal:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/ecc3/lyric-counter
+```
 
-### `npm run build`
+- Change directory into the project:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd lyric-counter
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Install all dependencies by running:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+- To view a live version of your local project run npm start, and the app will open in your browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. APIs: This app uses the Musicbrainz API, found [here](https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2), in order to get a list of songs for a given artist. It also uses the APISeeds api to find the lyrics for each of the artist's songs, found [here](https://apiseeds.com/documentation/lyrics).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. APISeeds only allows limited submissions per minute so pressing submit in the app can produce different responses. Currently the app sends 50 songs to the APISeeds lyrics API so two sumbits can be done per minute.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+3. Word cloud: The word cloud is generated via the react-wordcloud library, and is currently configured to only display words of at least 6 letters to prevent it from being dominated by short uninteresting words.
