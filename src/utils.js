@@ -1,6 +1,6 @@
 export const getArtistId = (artist, updateData) => {
   fetch(
-    `http://musicbrainz.org/ws/2/artist/?query=artist:${artist}%20&fmt=json`
+    `https://musicbrainz.org/ws/2/artist/?query=artist:${artist}%20&fmt=json`
   )
     .then(response => response.json())
     .then(artistData => {
@@ -10,7 +10,9 @@ export const getArtistId = (artist, updateData) => {
 };
 
 const getSongsByArtistId = (artistId, artist, updateData) => {
-  fetch(`http://musicbrainz.org/ws/2/work?artist=${artistId}&fmt=json&limit=50`)
+  fetch(
+    `https://musicbrainz.org/ws/2/work?artist=${artistId}&fmt=json&limit=50`
+  )
     .then(response => response.json())
     .then(worksData => {
       getAverageWordcountForSongs(worksData.works, artist, updateData);
