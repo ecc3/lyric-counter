@@ -6,6 +6,9 @@ export const getArtistId = (artist, updateData) => {
     .then(artistData => {
       const artistId = artistData.artists[0].id;
       getSongsByArtistId(artistId, artist, updateData);
+    })
+    .catch(err => {
+      console.log(err);
     });
 };
 
@@ -16,6 +19,9 @@ const getSongsByArtistId = (artistId, artist, updateData) => {
     .then(response => response.json())
     .then(worksData => {
       getAverageWordcountForSongs(worksData.works, artist, updateData);
+    })
+    .catch(err => {
+      console.log(err);
     });
 };
 
