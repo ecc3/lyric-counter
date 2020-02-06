@@ -4,17 +4,17 @@ import { Resizable } from "re-resizable";
 
 const resizeStyle = {
   display: "flex",
-  alignItems: "stretch",
+  alignItems: "center",
   justifyContent: "center",
   border: "solid 1px #ddd",
-  background: "#f0f0f0"
+  background: "#ffffff"
 };
 
 const options = {
   colors: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"],
   enableTooltip: true,
   deterministic: false,
-  fontFamily: "impact",
+  fontFamily: "Open Sans",
   fontSizes: [5, 60],
   fontStyle: "normal",
   fontWeight: "normal",
@@ -30,7 +30,8 @@ const WordCloud = props => {
   const { words } = props;
 
   const wordsAndTotals = words.reduce((acc, val) => {
-    if (val.length > 3) {
+    val = val.toLowerCase();
+    if (val.length > 5 && !/,.:[\]]/.test(val)) {
       acc[val] ? acc[val]++ : (acc[val] = 1);
     }
     return acc;
@@ -39,7 +40,7 @@ const WordCloud = props => {
   const formattedWords = [];
 
   for (const word in wordsAndTotals) {
-    if (wordsAndTotals[word] > 1) {
+    if (wordsAndTotals[word] > 0) {
       formattedWords.push({
         text: word,
         value: wordsAndTotals[word]
