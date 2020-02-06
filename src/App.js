@@ -8,7 +8,9 @@ class App extends Component {
   };
 
   handleChange = ({ target }) => {
-    this.setState({ artist: target.value });
+    if (target.value === "") {
+      this.setState({ artist: "", averageWordCount: "" });
+    } else this.setState({ artist: target.value });
   };
 
   handleSubmit = event => {
@@ -36,6 +38,12 @@ class App extends Component {
           <br />
           <input type="submit" value="Submit" />
         </form>
+        {this.state.averageWordCount && (
+          <p>
+            Average words in {this.state.artist} songs:{" "}
+            {this.state.averageWordCount}
+          </p>
+        )}
       </main>
     );
   }

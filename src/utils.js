@@ -10,7 +10,7 @@ export const getArtistId = (artist, updateAverageWordCount) => {
 };
 
 const getSongsByArtistId = (artistId, artist, updateAverageWordCount) => {
-  fetch(`http://musicbrainz.org/ws/2/work?artist=${artistId}&fmt=json&limit=5`)
+  fetch(`http://musicbrainz.org/ws/2/work?artist=${artistId}&fmt=json&limit=50`)
     .then(response => response.json())
     .then(worksData => {
       getAverageWordcountForSongs(
@@ -37,14 +37,14 @@ const getAverageWordcountForSongs = (songs, artist, updateAverageWordCount) => {
         totalWordCount += songWordCount;
         completedCount++;
         if (completedCount === songCount) {
-          const averageWordCount = (totalWordCount / songCount).toFixed(1);
+          const averageWordCount = (totalWordCount / songCount).toFixed(0);
           updateAverageWordCount(averageWordCount);
         }
       })
       .catch(err => {
         songCount--;
         if (completedCount === songCount) {
-          const averageWordCount = (totalWordCount / songCount).toFixed(1);
+          const averageWordCount = (totalWordCount / songCount).toFixed(0);
           updateAverageWordCount(averageWordCount);
         }
       });
