@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getArtistSongs } from "./utils";
+import { getArtistId } from "./utils";
 
 class App extends Component {
   state = {
@@ -12,7 +12,7 @@ class App extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    getArtistSongs(this.state.artist);
+    getArtistId(this.state.artist);
   };
 
   render() {
