@@ -34,12 +34,10 @@ const getAverageWordcountForSongs = (songs, artist, updateData) => {
   let completedCount = 0;
   let allSongWords = [];
   songs.forEach(song => {
-    fetch(
-      `https://orion.apiseeds.com/api/music/lyric/${artist}/${song.title}?apikey=8bNBudkPyx6tcUQJ2dRUtPlUF6bwnRGPlrvnIZ4m5ySvJIziuLAP8o4TJ8uST2A7`
-    )
+    fetch(`https://api.lyrics.ovh/v1/${artist}/${song.title}`)
       .then(response => response.json())
       .then(lyricData => {
-        const songWords = lyricData.result.track.text.split(/\s/);
+        const songWords = lyricData.lyrics.split(/\s/);
         allSongWords = allSongWords.concat(songWords);
 
         const songWordCount = songWords.length;
