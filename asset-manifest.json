@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/lyric-counter/static/css/main.767d560b.chunk.css",
-    "main.js": "/lyric-counter/static/js/main.d501e9e0.chunk.js",
-    "main.js.map": "/lyric-counter/static/js/main.d501e9e0.chunk.js.map",
-    "runtime-main.js": "/lyric-counter/static/js/runtime-main.f226f28d.js",
-    "runtime-main.js.map": "/lyric-counter/static/js/runtime-main.f226f28d.js.map",
-    "static/js/2.ed23650d.chunk.js": "/lyric-counter/static/js/2.ed23650d.chunk.js",
-    "static/js/2.ed23650d.chunk.js.map": "/lyric-counter/static/js/2.ed23650d.chunk.js.map",
-    "index.html": "/lyric-counter/index.html",
-    "precache-manifest.3d983b9f6f8bcbfd9911ce2a8e83a8f6.js": "/lyric-counter/precache-manifest.3d983b9f6f8bcbfd9911ce2a8e83a8f6.js",
-    "service-worker.js": "/lyric-counter/service-worker.js",
-    "static/css/main.767d560b.chunk.css.map": "/lyric-counter/static/css/main.767d560b.chunk.css.map",
-    "static/js/2.ed23650d.chunk.js.LICENSE.txt": "/lyric-counter/static/js/2.ed23650d.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/lyric-counter/static/media/leaves-336694_1920.f9ba31c7.jpg"
+    "main.css": "/lyric-counter/index.html/static/css/main.eac9c9c1.chunk.css",
+    "main.js": "/lyric-counter/index.html/static/js/main.a20b013b.chunk.js",
+    "main.js.map": "/lyric-counter/index.html/static/js/main.a20b013b.chunk.js.map",
+    "runtime-main.js": "/lyric-counter/index.html/static/js/runtime-main.8d060810.js",
+    "runtime-main.js.map": "/lyric-counter/index.html/static/js/runtime-main.8d060810.js.map",
+    "static/js/2.ed23650d.chunk.js": "/lyric-counter/index.html/static/js/2.ed23650d.chunk.js",
+    "static/js/2.ed23650d.chunk.js.map": "/lyric-counter/index.html/static/js/2.ed23650d.chunk.js.map",
+    "index.html": "/lyric-counter/index.html/index.html",
+    "precache-manifest.4c6e7de548a6d3a9b082c073749be48c.js": "/lyric-counter/index.html/precache-manifest.4c6e7de548a6d3a9b082c073749be48c.js",
+    "service-worker.js": "/lyric-counter/index.html/service-worker.js",
+    "static/css/main.eac9c9c1.chunk.css.map": "/lyric-counter/index.html/static/css/main.eac9c9c1.chunk.css.map",
+    "static/js/2.ed23650d.chunk.js.LICENSE.txt": "/lyric-counter/index.html/static/js/2.ed23650d.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/lyric-counter/index.html/static/media/leaves-336694_1920.f9ba31c7.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f226f28d.js",
+    "static/js/runtime-main.8d060810.js",
     "static/js/2.ed23650d.chunk.js",
-    "static/css/main.767d560b.chunk.css",
-    "static/js/main.d501e9e0.chunk.js"
+    "static/css/main.eac9c9c1.chunk.css",
+    "static/js/main.a20b013b.chunk.js"
   ]
 }
