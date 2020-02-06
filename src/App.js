@@ -3,7 +3,8 @@ import { getArtistId } from "./utils";
 
 class App extends Component {
   state = {
-    artist: ""
+    artist: "",
+    averageWordCount: ""
   };
 
   handleChange = ({ target }) => {
@@ -12,7 +13,13 @@ class App extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    getArtistId(this.state.artist);
+    getArtistId(this.state.artist, this.updateAverageWordCount);
+  };
+
+  updateAverageWordCount = averageWordCount => {
+    this.setState({ averageWordCount }, () => {
+      console.log(this.state.averageWordCount, "state awc");
+    });
   };
 
   render() {
