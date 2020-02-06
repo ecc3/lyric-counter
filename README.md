@@ -37,7 +37,7 @@ npm start
 
 ## Features
 
-1. APIs: This app uses the Musicbrainz API, found [here](https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2), in order to get a list of songs for a given artist. It also uses the APISeeds api to find the lyrics for each of the artist's songs, found [here](https://apiseeds.com/documentation/lyrics).
+1. APIs: This app uses the MusicBrainz API, found [here](https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2), in order to get a list of songs for a given artist. It also uses the APISeeds api to find the lyrics for each of the artist's songs, found [here](https://apiseeds.com/documentation/lyrics).
 
 2. APISeeds only allows limited submissions per minute so pressing submit in the app can produce different responses. Currently the app sends 50 songs to the APISeeds lyrics API so two sumbits can be done per minute.
 
