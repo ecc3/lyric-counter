@@ -50,6 +50,7 @@ class App extends Component {
       isLoading,
       minWordCount,
       maxWordCount,
+      allSongWords,
       showWordCloud
     } = this.state;
     return (
@@ -80,7 +81,12 @@ class App extends Component {
           <button onClick={this.handleClick} className="submit">
             Show Word Cloud
           </button>
-          {showWordCloud && <WordCloud />}
+          {showWordCloud && !averageWordCount && (
+            <p>Please search for an artist</p>
+          )}
+          {showWordCloud && averageWordCount && (
+            <WordCloud words={allSongWords} />
+          )}
         </div>
       </main>
     );
