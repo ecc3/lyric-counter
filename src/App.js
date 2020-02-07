@@ -18,7 +18,7 @@ class App extends Component {
   handleChange = ({ target }) => {
     if (target.value === "") {
       this.setState({ artist: "", averageWordCount: "", allSongWords: [] });
-    } else this.setState({ artist: target.value });
+    } else this.setState({ artist: target.value, averageWordCount: "" });
   };
 
   handleSubmit = event => {
@@ -39,7 +39,7 @@ class App extends Component {
 
   handleClick = () => {
     this.setState(currentState => {
-      return this.setState({ showWordCloud: !currentState.showWordCloud });
+      return { showWordCloud: !currentState.showWordCloud };
     });
   };
 
@@ -67,7 +67,10 @@ class App extends Component {
             />
             <br />
             <input type="submit" value="Submit" className="submit" />
-            {this.state.averageWordCount && (
+            {isNaN(averageWordCount) && (
+              <p>Not found. Please search for a different artist.</p>
+            )}
+            {averageWordCount && !isNaN(averageWordCount) && (
               <div>
                 <p>
                   Average words in songs by {artist}: {averageWordCount}
@@ -80,7 +83,8 @@ class App extends Component {
           </form>
           <section>
             <button onClick={this.handleClick} className="submit">
-              Show Word Cloud
+              {showWordCloud && "Hide Word Cloud"}
+              {!showWordCloud && "Show Word Cloud"}
             </button>
             {showWordCloud && !averageWordCount && (
               <p>Please search for an artist</p>
