@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fd5d1a15a3975a59b1fdf947aeee4522",
+    "revision": "b819ead0f55915bcf6b2b0def6c7e808",
     "url": "/lyric-counter/index.html"
   },
   {
-    "revision": "10cbb731f472f735288a",
+    "revision": "e14efa4afb9b6730648c",
     "url": "/lyric-counter/static/css/main.767d560b.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/lyric-counter/static/js/2.ed23650d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "10cbb731f472f735288a",
-    "url": "/lyric-counter/static/js/main.1c27a356.chunk.js"
+    "revision": "e14efa4afb9b6730648c",
+    "url": "/lyric-counter/static/js/main.97742d4e.chunk.js"
   },
   {
     "revision": "db3de9f77443f6c86d93",
