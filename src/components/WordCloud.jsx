@@ -30,8 +30,8 @@ const WordCloud = props => {
   const { words } = props;
 
   const wordsAndTotals = words.reduce((acc, val) => {
-    val = val.toLowerCase();
-    if (val.length > 5 && !/,.:[\]]/.test(val)) {
+    if (val && val.length > 5) {
+      val = val.toLowerCase().match(/[\w']+/)[0];
       acc[val] ? acc[val]++ : (acc[val] = 1);
     }
     return acc;
@@ -40,12 +40,10 @@ const WordCloud = props => {
   const formattedWords = [];
 
   for (const word in wordsAndTotals) {
-    if (wordsAndTotals[word] > 0) {
-      formattedWords.push({
-        text: word,
-        value: wordsAndTotals[word]
-      });
-    }
+    formattedWords.push({
+      text: word,
+      value: wordsAndTotals[word]
+    });
   }
 
   return (
