@@ -26,6 +26,9 @@ const getSongsByArtistId = (artistId, artist, updateData) => {
 };
 
 const getAverageWordcountForSongs = (songs, artist, updateData) => {
+  if (songs.length === 0) {
+    return updateData("", "", "", [], true);
+  }
   let totalWordCount = 0;
   let maxWordCount;
   let minWordCount;

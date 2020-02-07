@@ -11,6 +11,7 @@ class App extends Component {
     minWordCount: "",
     maxWordCount: "",
     allSongWords: [],
+    artistError: false,
     isLoading: false,
     showWordCloud: false
   };
@@ -27,12 +28,19 @@ class App extends Component {
     getArtistId(this.state.artist, this.updateData);
   };
 
-  updateData = (averageWordCount, minWordCount, maxWordCount, allSongWords) => {
+  updateData = (
+    averageWordCount,
+    minWordCount,
+    maxWordCount,
+    allSongWords,
+    artistError
+  ) => {
     this.setState({
       averageWordCount,
       minWordCount,
       maxWordCount,
       allSongWords,
+      artistError,
       isLoading: false
     });
   };
@@ -51,7 +59,8 @@ class App extends Component {
       minWordCount,
       maxWordCount,
       allSongWords,
-      showWordCloud
+      showWordCloud,
+      artistError
     } = this.state;
     return (
       <main className="main">
@@ -67,7 +76,7 @@ class App extends Component {
             />
             <br />
             <input type="submit" value="Submit" className="submit" />
-            {isNaN(averageWordCount) && (
+            {(isNaN(averageWordCount) || artistError) && (
               <p>Not found. Please search for a different artist.</p>
             )}
             {averageWordCount && !isNaN(averageWordCount) && (
