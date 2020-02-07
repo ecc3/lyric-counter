@@ -30,7 +30,7 @@ const WordCloud = props => {
   const { words } = props;
 
   const wordsAndTotals = words.reduce((acc, val) => {
-    if (val && val.length > 5) {
+    if (/[\w]+/.test(val) && val.length > 5) {
       val = val.toLowerCase().match(/[\w']+/)[0];
       acc[val] ? acc[val]++ : (acc[val] = 1);
     }
