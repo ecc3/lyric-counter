@@ -4,7 +4,7 @@ A front end application that returns the average, maximum and minimum number of 
 
 ## Project Demo
 
-This project is hosted via GitHub pages and can be viewed [here](https://ecc3.github.io/lyric-counter/index.html).
+This project is hosted via GitHub pages and can be viewed [here](https://ecc3.github.io/lyric-counter/).
 
 ## Getting started
 
